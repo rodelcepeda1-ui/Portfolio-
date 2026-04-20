@@ -3,105 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rodel P. Cepeda | Portfolio</title>
+  <title>Rodel P. Cepeda | Professional Portfolio</title>
   <style>
-    /* Smooth Scrolling */
-    html {
-      scroll-behavior: smooth;
+    /* Reset & Base Styles */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { 
+      font-family: 'Inter', -apple-system, sans-serif; 
+      background: #0f172a; 
+      color: #e2e8f0; 
+      line-height: 1.7;
+      animation: fadeIn 1s ease-in;
     }
 
-    /* Vibrant Gradient Background */
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: #fff;
-      line-height: 1.6;
-      text-align: center;
-      min-height: 100vh;
-    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-    /* Navigation Bar */
+    /* Modern Glassmorphic Nav */
     nav {
-      background: rgba(0, 0, 0, 0.8);
-      padding: 15px 0;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(12px);
+      padding: 20px;
       position: sticky;
       top: 0;
       z-index: 1000;
-      backdrop-filter: blur(5px);
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     nav a {
-      color: white;
+      color: #94a3b8;
       text-decoration: none;
-      margin: 0 20px;
-      font-weight: bold;
-      text-transform: uppercase;
-      transition: color 0.3s;
+      font-weight: 600;
+      transition: all 0.3s ease;
     }
 
-    nav a:hover {
-      color: #ffde59;
-    }
+    nav a:hover { color: #38bdf8; transform: translateY(-2px); }
 
-    /* Modern Header */
+    /* Header Section */
     header {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      padding: 80px 20px;
-      margin-bottom: 40px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 100px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
     }
 
-    h1 { margin: 0; font-size: 2.8em; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-    h2, h3 { color: #ffde59; text-transform: uppercase; letter-spacing: 2px; }
+    h1 { font-size: 3.5rem; margin-bottom: 10px; background: linear-gradient(to right, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-    /* Resume Section Styling */
-    #resume {
-      background: rgba(255, 255, 255, 0.1);
-      margin: 40px auto;
-      padding: 40px;
-      max-width: 800px;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.2);
+    /* Sections */
+    section { max-width: 900px; margin: 80px auto; padding: 0 20px; }
+    h2 { font-size: 2rem; color: #f1f5f9; margin-bottom: 30px; border-left: 4px solid #38bdf8; padding-left: 15px; }
+
+    /* Updated Image Gallery */
+    .image-container { 
+      display: flex; 
+      justify-content: center; 
+      gap: 20px; 
+      flex-wrap: wrap; 
+      margin: 30px 0; 
     }
+    .image-container img { 
+      width: 280px; 
+      height: 250px; 
+      object-fit: cover; 
+      border-radius: 12px;
+      border: 3px solid #334155;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .image-container img:hover { transform: scale(1.05); border-color: #38bdf8; }
 
+    /* Resume Card */
+    .resume-box { background: rgba(30, 41, 59, 0.5); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); }
     .resume-download-btn {
-      display: inline-block;
-      background: #2ecc71;
-      color: white;
-      padding: 15px 30px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-top: 20px;
-      transition: transform 0.3s, background 0.3s;
-      box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+      display: inline-block; background: #38bdf8; color: #0f172a; padding: 12px 30px;
+      border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 20px;
+      transition: background 0.3s;
     }
+    .resume-download-btn:hover { background: #7dd3fc; }
 
-    .resume-download-btn:hover {
-      background: #27ae60;
-      transform: scale(1.05);
-    }
-
-    /* Existing Image/Video/Form Styling */
-    .image-container { display: flex; justify-content: center; gap: 30px; margin: 40px 0; flex-wrap: wrap; }
-    .image-container img { width: 220px; height: 220px; border-radius: 20px; object-fit: cover; border: 4px solid #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.3); transition: all 0.3s ease; }
-    .image-container img:hover { transform: translateY(-10px); border-color: #ffde59; }
-
-    .badge { background: #ff4757; padding: 10px 25px; border-radius: 50px; font-weight: bold; margin: 5px; display: inline-block; }
+    /* Contact Form */
+    .contact-form { background: #1e293b; padding: 40px; border-radius: 20px; }
+    input, textarea { width: 100%; padding: 15px; margin: 10px 0; background: #0f172a; border: 1px solid #334155; border-radius: 8px; color: white; }
+    button { width: 100%; padding: 15px; background: #818cf8; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
     
-    .video-container video { width: 95%; max-width: 700px; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.5); }
-
-    .contact-form { background: #fff; color: #333; padding: 40px; margin: 60px auto; border-radius: 20px; max-width: 600px; text-align: left; }
-    .contact-form input, .contact-form textarea { width: 100%; padding: 12px; margin-top: 8px; border: 2px solid #ddd; border-radius: 8px; box-sizing: border-box; }
-    .contact-form button { background: #764ba2; color: white; padding: 15px 30px; border: none; border-radius: 8px; width: 100%; cursor: pointer; font-weight: bold; margin-top: 20px; }
-
-    footer { padding: 40px; opacity: 0.8; }
+    footer { text-align: center; padding: 40px; color: #64748b; font-size: 0.9rem; }
   </style>
 </head>
-
 <body>
 
   <nav>
@@ -113,73 +100,38 @@
 
   <header id="home">
     <h1>Rodel P. Cepeda</h1>
-    <p>Barangay Cabacungan, La Castellana, Negros Occidental</p>
+    <p>Aspiring Professional | Dedicated to Growth & Service</p>
   </header>
 
-  <div class="container">
-    
-    <section id="activities">
-      <h2>About & Activities</h2>
-      <p>Welcome to my digital portfolio! Dedicated to growth, school, and service.</p>
+  <section id="activities">
+    <h2>Activities & Interests</h2>
+    <div class="image-container">
+      <img src="img.jpg" alt="Activity 1">
+      <img src="me.jpg" alt="Profile Picture">
+      <img src="IMG20250909123213.jpg" alt="Activity 3">
+    </div>
+  </section>
 
-      <div class="image-container">
-        <img src="img.jpg" alt="Activity 1">
-        <img src="me.jpg" alt="Activity 2">
-        <img src="R.jpg.jpg" alt="Activity 3">
-      </div>
+  <section id="resume" class="resume-box">
+    <h2>Resume Highlights</h2>
+    <p><strong>Education:</strong> High School Student, La Castellana</p>
+    <p><strong>Expertise:</strong> Leadership, ROTC Training, Community Service</p>
+    <a href="my-resume.pdf" class="resume-download-btn">Download Full CV</a>
+  </section>
 
-      <div class="text-container">
-        <span class="badge">ROTC</span>
-        <span class="badge">Bacolod</span>
-        <span class="badge">School</span>
-      </div>
+  <section id="contact">
+    <div class="contact-form">
+      <h2>Get In Touch</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="4" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
 
-      <h3>Featured Video</h3>
-      <div class="video-container">
-        <video src="Dol.mp4" controls></video>
-      </div>
-    </section>
-
-    <section id="resume">
-      <h2>My Resume</h2>
-      <div style="text-align: left; background: rgba(0,0,0,0.2); padding: 20px; border-radius: 10px;">
-        <h3 style="color: #fff; margin-top: 0;">Education</h3>
-        <p>• High School Student - La Castellana, Negros Occidental</p>
-        
-        <h3 style="color: #fff;">Skills & Training</h3>
-        <p>• ROTC (Reserve Officers' Training Corps)<br>
-           • Leadership & Discipline<br>
-           • Community Service</p>
-      </div>
-
-      <a href="my-resume.pdf" download="Rodel_Cepeda_Resume" class="resume-download-btn">
-        Download Full Resume (PDF)
-      </a>
-    </section>
-
-    <section id="contact">
-      <div class="contact-form">
-        <h2>Get In Touch</h2>
-        <form action="#" method="post">
-          <label for="firstname">First Name</label>
-          <input type="text" id="firstname" name="firstname" placeholder="Your name..">
-
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="example@mail.com">
-
-          <label for="comments">Message</label>
-          <textarea id="comments" name="comments" rows="5" placeholder="Write something..."></textarea>
-
-          <button type="submit">Send Message</button>
-        </form>
-      </div>
-    </section>
-
-  </div>
-
-  <footer>
-    &copy; 2026 Rodel P. Cepeda. All rights reserved.
-  </footer>
+  <footer>&copy; 2026 Rodel P. Cepeda. Built with precision.</footer>
 
 </body>
 </html>
