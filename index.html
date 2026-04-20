@@ -1,138 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rodel P. Cepeda | Professional Portfolio</title>
-  <style>
-    /* Reset & Base Styles */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { 
-      font-family: 'Inter', -apple-system, sans-serif; 
-      background: #0f172a; 
-      color: #e2e8f0; 
-      line-height: 1.7;
-      animation: fadeIn 1s ease-in;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rodel P. Cepeda | Portfolio</title>
+    <style>
+        /* --- CSS STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
 
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        body {
+            background-color: #f0f7ff;
+            color: #1e293b;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    /* Modern Glassmorphic Nav */
-    nav {
-      background: rgba(15, 23, 42, 0.8);
-      backdrop-filter: blur(12px);
-      padding: 20px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    nav a {
-      color: #94a3b8;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
+        .reveal {
+            animation: fadeInUp 0.8s ease forwards;
+        }
 
-    nav a:hover { color: #38bdf8; transform: translateY(-2px); }
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #1e3a8a;
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
 
-    /* Header Section */
-    header {
-      padding: 100px 20px;
-      text-align: center;
-      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-    }
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
 
-    h1 { font-size: 3.5rem; margin-bottom: 10px; background: linear-gradient(to right, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-button {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
 
-    /* Sections */
-    section { max-width: 900px; margin: 80px auto; padding: 0 20px; }
-    h2 { font-size: 2rem; color: #f1f5f9; margin-bottom: 30px; border-left: 4px solid #38bdf8; padding-left: 15px; }
+        .nav-button:hover {
+            background-color: #3b82f6;
+            transform: translateY(-2px);
+        }
 
-    /* Updated Image Gallery */
-    .image-container { 
-      display: flex; 
-      justify-content: center; 
-      gap: 20px; 
-      flex-wrap: wrap; 
-      margin: 30px 0; 
-    }
-    .image-container img { 
-      width: 280px; 
-      height: 250px; 
-      object-fit: cover; 
-      border-radius: 12px;
-      border: 3px solid #334155;
-      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-    .image-container img:hover { transform: scale(1.05); border-color: #38bdf8; }
+        section {
+            min-height: 100vh;
+            padding: 120px 20px 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    /* Resume Card */
-    .resume-box { background: rgba(30, 41, 59, 0.5); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); }
-    .resume-download-btn {
-      display: inline-block; background: #38bdf8; color: #0f172a; padding: 12px 30px;
-      border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 20px;
-      transition: background 0.3s;
-    }
-    .resume-download-btn:hover { background: #7dd3fc; }
+        h2 {
+            font-size: 2.5rem;
+            color: #1e3a8a;
+            margin-bottom: 40px;
+            text-align: center;
+        }
 
-    /* Contact Form */
-    .contact-form { background: #1e293b; padding: 40px; border-radius: 20px; }
-    input, textarea { width: 100%; padding: 15px; margin: 10px 0; background: #0f172a; border: 1px solid #334155; border-radius: 8px; color: white; }
-    button { width: 100%; padding: 15px; background: #818cf8; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
-    
-    footer { text-align: center; padding: 40px; color: #64748b; font-size: 0.9rem; }
-  </style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover { transform: translateY(-10px); }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content { padding: 20px; text-align: center; }
+
+        #home {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            justify-content: center;
+        }
+
+        .profile-img {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 8px solid rgba(255, 255, 255, 0.1);
+            object-fit: cover;
+        }
+
+        .btn-action {
+            background-color: #2563eb;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin: 5px;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-facebook { background-color: #1877f2; }
+        .btn-gmail { background-color: #ea4335; }
+
+        /* --- CHATBOT STYLES --- */
+        #chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 2000;
+        }
+
+        #chat-button {
+            width: 60px;
+            height: 60px;
+            background: #2563eb;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        #chat-box {
+            display: none;
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 300px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        #chat-header { background: #1e3a8a; color: white; padding: 15px; font-weight: bold; }
+        #chat-messages { height: 200px; padding: 15px; overflow-y: auto; font-size: 14px; }
+        #chat-input-area { display: flex; border-top: 1px solid #eee; }
+        #chat-input { flex: 1; padding: 10px; border: none; outline: none; }
+
+        @media (max-width: 768px) {
+            .card-resume { flex-direction: column !important; }
+            .resume-img { width: 100% !important; }
+        }
+    </style>
 </head>
 <body>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#activities">Activities</a>
-    <a href="#resume">Resume</a>
-    <a href="#contact">Contact</a>
-    <a href="#certificates">Certificates</a>
-  </nav>
-
-  <header id="home">
-    <h1>Rodel P. Cepeda</h1>
-    <p>Professional Portfolio</p>
-  </header>
-
-  <section id="activities">
-    <h2>Activities & Interests</h2>
-    <div class="image-container">
-      <img src="img.jpg" alt="Activity 1">
-      <img src="me.jpg" alt="Profile Picture">
-      <img src="IMG20250909123213.jpg" alt="Activity 3">
-    </div>
-  </section>
-
-  <section id="resume" class="resume-box">
-    <h2>Resume Highlights</h2>
-    <p><strong>Education:</strong> College Student, Moises Padilla</p>
-    <p><strong>Expertise:</strong> Leadership, ROTC Training, Community Service</p>
-    <a href="my-resume.pdf" class="resume-download-btn">Download Full CV</a>
-  </section>
-
-  <section id="contact">
-    <div class="contact-form">
-      <h2>Get In Touch</h2>
-      <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea rows="4" placeholder="Your Message"></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
-  </section>
-
-  <footer id="certificates">&copy; 2026 Rodel P. Cepeda. Built with precision.</footer>
-
-</body>
-</html>
+    <nav class="nav
