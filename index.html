@@ -185,3 +185,328 @@
 <body>
 
     <nav class="nav
+
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rodel P. Cepeda | Portfolio</title>
+    <style>
+        /* --- CSS STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f0f7ff;
+            color: #1e293b;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #1e3a8a;
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+.nav-button {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background-color: #3b82f6;
+            transform: translateY(-2px);
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 120px 20px 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #1e3a8a;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover { transform: translateY(-10px); }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content { padding: 20px; text-align: center; }
+
+        #home {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            justify-content: center;
+        }
+
+        .profile-img {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 8px solid rgba(255, 255, 255, 0.1);
+            object-fit: cover;
+        }
+
+        .btn-action {
+            background-color: #2563eb;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin: 5px;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-facebook { background-color: #1877f2; }
+        .btn-gmail { background-color: #ea4335; }
+
+        /* --- CHATBOT STYLES --- */
+        #chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 2000;
+        }
+
+        #chat-button {
+            width: 60px;
+            height: 60px;
+            background: #2563eb;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        #chat-box {
+            display: none;
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 300px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        #chat-header { background: #1e3a8a; color: white; padding: 15px; font-weight: bold; }
+        #chat-messages { height: 200px; padding: 15px; overflow-y: auto; font-size: 14px; }
+        #chat-input-area { display: flex; border-top: 1px solid #eee; }
+        #chat-input { flex: 1; padding: 10px; border: none; outline: none; }
+
+        @media (max-width: 768px) {
+            .card-resume { flex-direction: column !important; }
+            .resume-img { width: 100% !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-button">Home</a>
+            <a href="#projects" class="nav-button">Projects</a>
+            <a href="#certificates" class="nav-button">Certificates</a>
+            <a href="#resume" class="nav-button">Resume</a>
+            <a href="#contact" class="nav-button">Contact</a>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="profile-container reveal">
+            <img src="/Rodel /Profile.jpeg" alt="Rodel Cepeda" class="profile-img">
+            <div class="profile-intro">
+                <h1>I'm Rodel P. Cepeda</h1>
+            
+                <p>Building high-performance web solutions.</p>
+                <a href="#contact" class="btn-action" style="background: white; color: #1e3a8a;">Let's Talk</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="reveal">My Projects</h2>
+        <div class="grid-container reveal">
+            <div class="card">
+                <img src="/Rodel /Layout.jpeg" alt="Project 1" class="card-img">
+                <div class="card-content">
+                    <h3>E-Commerce System</h3>
+                    <a href="/Rodel /Layout.jpeg" target="_blank" class="btn-action">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificates" style="background-color: #e0f2fe;">
+        <h2 class="reveal">Certificates</h2>
+        <div class="grid-container reveal">
+            <div class="card">
+                <img src="/Rodel /Cert1.jpeg" alt="Cert 1" class="card-img">
+                <div class="card-content">
+                    <a href="/Rodel /Cert1.jpeg" target="_blank" class="btn-action">View</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="/Rodel /Mikecert.jpeg" alt="Cert 2" class="card-img">
+                <div class="card-content">
+                    <a href="/Rodel /Mikecert.jpeg" target="_blank" class="btn-action">View</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume">
+        <h2 class="reveal">Resume</h2>
+        <div class="grid-container reveal" style="grid-template-columns: 1fr;"> 
+            <div class="card card-resume" style="flex-direction: row; display: flex;">
+                <img src="/Rodel /Resume.jpeg" alt="Resume" class="resume-img" style="width: 300px; object-fit: cover;">
+                <div class="card-content" style="flex: 1; text-align: left; padding: 40px;">
+                    <a href="/Rodel /Resume.jpeg" target="_blank" class="btn-action">View</a>
+                    <a href="/Rodel /Resume.jpeg" download class="btn-action" style="background: #1e3a8a;">Download</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="reveal" style="color: black;">Get In Touch</h2>
+        <div class="contact-card reveal">
+            <p>Ready to start your next project?</p>
+            <br>
+            <a href="rodelcepeda1@gmail.com" class="btn-action btn-gmail">Email Me</a>
+            
+            <a href="https://www.facebook.com/profile.php?id=61571015994051" target="_blank" class="btn-action btn-facebook">Facebook</a>
+            
+            <div style="margin-top: 20px; font-size: 0.9rem;">
+                <p><strong>Location:</strong> Brgy. Cabacungan, La Castellana, Neg. Occ</p>
+            </div>
+        </div>
+    </section>
+<div id="chat-widget">
+        <div id="chat-box">
+            <div id="chat-header">Rodel's Assistant</div>
+            <div id="chat-messages">
+                <div style="margin-bottom: 10px; color: #555;">Hello! How can I help you today?</div>
+            </div>
+            <div id="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Type a message...">
+                <button onclick="sendMessage()" style="padding: 10px; background: #2563eb; color: white; border: none;">Send</button>
+            </div>
+        </div>
+        <div id="chat-button" onclick="toggleChat()">💬</div>
+    </div>
+
+    <script>
+        // Toggle Chat Window
+        function toggleChat() {
+            const chatBox = document.getElementById('chat-box');
+            chatBox.style.display = chatBox.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        // Simple Chat Logic
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const messages = document.getElementById('chat-messages');
+            
+            if (input.value.trim() !== "") {
+                messages.innerHTML += `<div style="text-align: right; margin-bottom: 10px;"><b>You:</b> ${input.value}</div>`;
+                
+                // Automated Response
+                setTimeout(() => {
+                    messages.innerHTML += `<div style="text-align: left; margin-bottom: 10px; color: #1e3a8a;"><b>Bot:</b> Thanks for your message! Rodel will get back to you via email soon.</div>`;
+                    messages.scrollTop = messages.scrollHeight;
+                }, 1000);
+                
+                input.value = "";
+                messages.scrollTop = messages.scrollHeight;
+            }
+        }
+
+        // Intersection Observer for Scroll Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section, .grid-container, .card, .contact-card').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+    </html>
+    
+        
+        
+
+        
